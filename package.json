@@ -1,0 +1,24 @@
+{
+  "name": "textparser",
+  "version": "1.0.0",
+  "description": "A cool app for parsing .txt files",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MatijaVeselinovic/textParser.git"
+  },
+  "author": "Matija Veselinovic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MatijaVeselinovic/textParser/issues"
+  },
+  "homepage": "https://github.com/MatijaVeselinovic/textParser#readme",
+  "devDependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.12"
+  }
+}
