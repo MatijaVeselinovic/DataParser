@@ -20,6 +20,7 @@ app.use(express.static(path.join(__dirname, "css")));
 
 app.get('/', (req, res) => {
   try {
+    // Start performance timer, just for curiosity
     const startTime = performance.now()
 
     // Make sure we got a filename as an argument
@@ -29,23 +30,20 @@ app.get('/', (req, res) => {
     }
 
     // Read from file and store into object array
-    const formattedArray = reader.readFileData();
+    const formattedLogArray = reader.readFileData();
 
-    const parser = new DataParser(formattedArray);
+    // Instantiate parser with formattedLogArray as an argument
+    const parser = new DataParser(formattedLogArray);
 
+    // Use the appropriate class methods to retrieve different arrays
     const unsortedNonUniqueVisits = parser.getNonUniquePathVisits();
     const unsortedUniqueVisits = parser.getUniquePathVisits();
-  
-    let sortedNonUniquePathVisits = sortArray(unsortedNonUniqueVisits);
-    let sortedUniquePathVisits = sortArray(unsortedUniqueVisits);
 
-    let someLength = 0;
-    console.log(formattedArray.length);
-    sortedUniquePathVisits.forEach(element => {
-      someLength += element.occurrence;
-    });
-    console.log(someLength)
+    // Use the helper function sortArray to sort both arrays
+    const sortedNonUniquePathVisits = sortArray(unsortedNonUniqueVisits);
+    const sortedUniquePathVisits = sortArray(unsortedUniqueVisits);
 
+    // Finally send it to the view
     res.render("index", {
       sortedNonUniquePathVisits,
       sortedUniquePathVisits

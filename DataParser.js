@@ -1,19 +1,13 @@
 class DataParser {
-    constructor(formattedArray) {
-        this.formattedArray = formattedArray;
+    constructor(formattedLogArray) {
+        this.formattedLogArray = formattedLogArray;
         this.uniquePaths = [];
         this.pathVisits = [];
     }
 
-    parseTheData = () => {
-        this.getUniquePaths();
-        this.getPathVisits();
-        this.getParsedPaths();
-    }
-
     // Get the list of unique paths in a path array
     getUniquePaths = () => {
-        this.uniquePaths = this.formattedArray.map(arrayElement => { 
+        this.uniquePaths = this.formattedLogArray.map(arrayElement => { 
             return arrayElement.path;
         }).filter(findUniqueEntries);
     }
@@ -31,7 +25,7 @@ class DataParser {
   
     // Count the number of occurances and push all ip addresses related to the certain path
     getParsedPaths = () => {
-        this.formattedArray.forEach(arrayElement => {
+        this.formattedLogArray.forEach(arrayElement => {
             this.pathVisits.forEach(pathObject => {
                 if(arrayElement.path === pathObject.path) {
                     pathObject.occurrence++;
@@ -39,6 +33,13 @@ class DataParser {
                 };
             });
         });
+    }
+
+    // Aggregate function to parse the formatted array
+    parseTheData = () => {
+        this.getUniquePaths();
+        this.getPathVisits();
+        this.getParsedPaths();
     }
 
     // Create a non unique path visits object array
