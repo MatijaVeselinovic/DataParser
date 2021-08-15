@@ -6,6 +6,7 @@ class DataReader {
         this.dataArray = [];
     }
 
+    //Read file synchronously and make an array out of it
     readFileData = () => {
         this.dataArray = [];
         const result = fs.readFileSync(this.logFilePath, 'utf8');
