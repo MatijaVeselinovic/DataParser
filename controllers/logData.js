@@ -1,10 +1,10 @@
 const { performance } = require('perf_hooks');
 
 const filename = process.argv[2];
-const DataReader = require('../DataReader');
+const DataReader = require('../utils/DataReader');
 const reader = new DataReader(filename);
 
-const DataParser = require('../DataParser');
+const DataParser = require('../utils/DataParser');
 
 require('../utils/helperFunctions');
 
