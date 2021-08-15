@@ -2,7 +2,6 @@ const express = require('express');
 const { performance } = require('perf_hooks');
 
 const filename = process.argv[2];
-
 const DataReader = require('../DataReader');
 const reader = new DataReader(filename);
 
