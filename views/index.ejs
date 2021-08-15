@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DataParser Homepage</title>        
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="section-wrapper">
+        <h1>Looks like your results are done!</h1>
+        <div class="result-wrapper">
+            <% if (sortedNonUniquePathVisits.length > 0) { %>
+                <div class="result-box">
+                    <h2>Non-unique path visits</h2>
+                    <% for (let nonUniquePathVisit of sortedNonUniquePathVisits) { %>
+                        <div><p>Path <span><%= nonUniquePathVisit.path %></span> has <span><%= nonUniquePathVisit.occurrence %></span> NON unique views.</p></div>
+                    <% } %>
+                </div>
+            <% } %>
+
+            <% if (sortedUniquePathVisits.length > 0) { %>
+                <div class="result-box">
+                    <h2>Unique path visits</h2>
+                    <% for (let uniquePathVisit of sortedUniquePathVisits) { %>
+                        <div><p>Path <span><%= uniquePathVisit.path %></span> has <span><%= uniquePathVisit.occurrence %></span> unique views.</p></div>
+                    <% } %>
+                </div>
+            <% } %>
+        </div>
+    </div>
+    
+</body>
+
+</html>
